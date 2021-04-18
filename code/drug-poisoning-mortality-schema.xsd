@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	
+	<xs:simpleType name="year">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"/>
+		</xs:restriction>
+	</xs:simpleType>	
+
+	<xs:simpleType name="sex">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Male"/>
+			<xs:enumeration value="Female"/>
+			<xs:enumeration value="Both Sexes"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="ageRange">
+		<xs:all>
+			<xs:element name="LowerBound" type="xs:integer"/>
+			<xs:element name="UpperBound" type="xs:integer"/>
+		</xs:all>
+	</xs:complexType>
+
+	<xs:simpleType name="racehispanicorigin">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="All Races-All Origins"/>
+			<xs:enumeration value="Hispanic"/>
+			<xs:enumeration value="Non-Hispanic Black"/>
+			<xs:enumeration value="Non-Hispanic White"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="state">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="deaths">
+		<xs:restriction base="xs:integer"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="population">
+		<xs:restriction base="xs:integer"/>
+	</xs:simpleType>
+
+	<xs:complexType name="crude">
+		<xs:all>
+			<xs:element name="DeathRate" type="xs:float"/>
+			<xs:element name="Stderr" type="xs:float"/>
+			<xs:element name="LowConfidenceLimit" type="xs:float"/>
+			<xs:element name="UpperConfidenceLimit" type="xs:float"/>
+			<xs:element name="StateRateLowerBound" type="xs:float"/>
+			<xs:element name="StateRateUpperBound" type="xs:float"/>
+			<xs:element name="USRate" type="xs:float"/>
+		</xs:all>
+	</xs:complexType>
+
+	<xs:complexType name="age">
+		<xs:all>
+			<xs:element name="AdjustedRate" type="xs:float"/>
+			<xs:element name="Stderr" type="xs:float"/>
+			<xs:element name="LowConfidenceLimit" type="xs:float"/>
+			<xs:element name="UpperConfidenceLimit" type="xs:float"/>
+			<xs:element name="USRate" type="xs:float"/>
+		</xs:all>
+	</xs:complexType>
+
+	<xs:complexType name="drugpoisoningstatistic">
+		<xs:all>
+			<xs:element name="Year" type="year"/>
+			<xs:element name="Sex" type="sex"/>
+			<xs:element name="AgeRange" type="ageRange"/>
+			<xs:element name="Race" type="racehispanicorigin"/>
+			<xs:element name="State" type="state"/>
+			<xs:element name="Deaths" type="deaths"/>
+			<xs:element name="Population" type="population"/>
+			<xs:element name="Crude" type="crude"/>
+			<xs:element name="AgeInfo" type="age"/>
+		</xs:all>
+	</xs:complexType>	
+
+	<xs:element name="DrugPoisoning">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DrugPoisoningStatistic" type="drugpoisoningstatistic" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

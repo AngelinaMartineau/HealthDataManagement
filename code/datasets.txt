@@ -1,0 +1,4 @@
+https://data.cdc.gov/api/views/g4ie-h725/rows.csv?accessType=DOWNLOAD
+https://data.cdc.gov/api/views/bi63-dtpu/rows.csv?accessType=DOWNLOAD
+https://data.cdc.gov/api/views/jx6g-fdh6/rows.csv?accessType=DOWNLOAD
+https://data.cdc.gov/api/views/hn4x-zwk7/rows.csv?accessType=DOWNLOAD
